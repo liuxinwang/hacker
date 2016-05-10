@@ -1,0 +1,41 @@
+body {
+	background-color: #949494;
+	border: 1px ;
+}
+#regist_div {
+	display:none;
+	width:500px;
+	height:200px;
+	position:absolute;
+	left:37.5%;
+	top:30%;
+	
+}
+#login_div {
+	display:block;
+	width:500px;
+	height:200px;
+	position:absolute;
+	left:37.5%;
+	top:30%;
+	font-family: '华文细黑';
+	color: white;
+}
+.header,.letter{
+	font-family: '华文细黑';
+	color: white;
+}
+input {
+	width: 200px;
+	border-radius:5px;
+	border: 1px solid #0066ff;			
+}
+#regist_button,#login_button {
+	width: 70px;
+	height: 28px;
+	border-radius:3px;
+}
+span.warning {
+	display:none;
+	color:red;
+}

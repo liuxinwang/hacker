@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>用户注册</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style/register.css"/>
+		<script type="text/javascript" src="script/jquery.min.js"></script>
+		<script type="text/javascript" src="script/login.js"></script>
+		<script type="text/javascript" src="script/register.js"></script>
+		<script type="text/javascript" src="script/base.js"></script>
+		<script type="text/javascript" src="script/logOregistSwitch.js"></script>
+		<script type="text/javascript" src="script/cookie_util.js"></script>		
+	</head>
+	<body>
+		<div id="login_div">
+			<dl>
+				<dt>
+					<div class='header'>
+						<h2>登录</h2>
+					</div>
+				</dt>
+				<dt>
+					<div class="letter">
+						帐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：&nbsp;&nbsp;<input type="text" id="username">
+						<span class="warning" id="warning_4">用户名不存在</span>
+					</div>
+				</dt>
+				<dt>
+					<div class="letter">
+						密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：&nbsp;&nbsp;<input type="password" id="password">
+						<span class="warning" id="warning_5">密码错误</span>
+					</div>
+				</dt>
+				<dt>
+					<div class="letter">
+						<input  type="button" id="login_button" value="登&nbsp&nbsp录">
+						<script type="text/javascript" src="script/register_check.js">
+						</script>
+					</div>
+				</dt>
+				<dt>
+					<div class="prompt">
+						<p>没有帐号？&nbsp;&nbsp;<span><a href="javascript:;;" id="a_login">注册</a></span></p>
+						<script type="text/javascript">
+							registSwitch();
+						</script>
+					</div>
+				</dt>
+			</dl>
+		</div>
+	
+		<div id="regist_div">
+			<dl>
+				<dt>
+					<div class='header'>
+						<h2>新用户注册</h2>
+					</div>
+				</dt>
+					<div class="letter">
+						帐&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：&nbsp;&nbsp;<input type="text" id="regist_username">
+						<span class="warning" id="warning_1">用户名已存在</span>
+					</div>
+				<dt>
+					<div class="letter">
+						密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：&nbsp;&nbsp;<input type="password" id="regist_password">
+						<span class="warning" id="warning_2">密码少于六位</span>
+					</div>
+				</dt>
+					<div class="letter">
+						确认&nbsp;密码：&nbsp;&nbsp;<input type="password" id="final_password">
+						<span class="warning" id="warning_3">密码输入不一致</span>
+					</div>
+				<dt>
+					<div class="letter">
+						<input  type="button" id="regist_button" value="注&nbsp&nbsp册">
+						<script type="text/javascript" src="script/register_check.js">
+						</script>
+					</div>
+				</dt>
+				<dt>
+					<div class="prompt">
+						<p style="color:rad">已有帐号？&nbsp;&nbsp;<span><a href="javascript:;;" id="a_regist">登录</a></span></p>
+						<script type="text/javascript">
+							logSwitch();
+						</script>
+					</div>
+				</dt>
+			</dl>
+		</div>
+		
+	</body>
+</html>

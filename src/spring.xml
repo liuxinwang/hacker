@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context" 
+    xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+    xmlns:jee="http://www.springframework.org/schema/jee" 
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+  
+  <!-- 配置数据源 -->
+    <bean id="ds" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="url" value="jdbc:mysql://rm-bp147z0j2fz54215f.mysql.rds.aliyuncs.com:3306/r8e1qfehuv" />
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="username" value="r8e1qfehuv" />
+        <property name="password" value="liuxinwang" />
+    </bean>
+    
+    <!-- 配置SqlSessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="ds" />
+        <property name="mapperLocations" value="classpath:com/hackerhome/www/bean/mapper/*.xml" />
+        <property name="plugins">  
+	    	<array>  
+	        	<bean class="com.hackerhome.www.util.MapInterceptor"/>  
+	    	</array>  
+	    </property>  
+    </bean>
+    
+    <!-- 配置MyBatis注解 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.hackerhome.www.dao" />
+<!--        <property name="annotationClass" value="com.tarena.annotation.MyBatisRepository" />-->
+    </bean>     
+    
+    <!-- 注解扫描 -->
+    <context:component-scan base-package="com.hackerhome.www"/>   
+    
+    <!--开启MVC注解扫描 -->
+    <mvc:annotation-driven/> 
+        
+</beans>
