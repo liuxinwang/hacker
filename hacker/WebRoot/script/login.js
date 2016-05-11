@@ -36,6 +36,7 @@ $(function(){
 						var registName = result.data.registusr_name;
 						addCookie("registId",registId,0.5); 
 						addCookie("nickame",nickame,0.5); 
+						addCookie("registName",registName,0.5); 
 						alert(result.msg);//提示
 						if("root"!=registName){							
 							window.location.href="homepage.html";
