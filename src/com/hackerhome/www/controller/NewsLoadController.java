@@ -46,8 +46,20 @@ public class NewsLoadController {
 	 */
 	@RequestMapping("/newspreview.do")
 	@ResponseBody
-	public JsonResult execute2(String newsId){
+	public JsonResult newsPreview(String newsId){
 		JsonResult result = service.newsPreview(newsId);
+		return result;
+	}
+	
+	/**
+	 * 新增新闻
+	 * @param newsId
+	 * @return
+	 */
+	@RequestMapping("/newsave.do")
+	@ResponseBody
+	public JsonResult newSave(String newsTitle, String content, String source, String author){
+		JsonResult result = service.newSave(newsTitle, content, source, author);
 		return result;
 	}
 }

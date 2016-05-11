@@ -1,3 +1,4 @@
+// 主页 管理员登录检查
 window.onload=function(){
 	var registName = getCookie("registName");
 	if(registName==null || registName != "root"){

@@ -1,6 +1,8 @@
 package com.hackerhome.www.util;
 
 import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 import org.apache.commons.codec.binary.Base64;
@@ -42,10 +44,18 @@ public class HomeUtil {
 		}
 	}
 	
+	public static String getNewDateToStr() {
+		Date now = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
+		return new String(sdf.format(now));
+	}
+	
 	public static void main(String[] args) {
-		for(int i=0;i<40;i++){			
-			System.out.println(HomeUtil.createId());
-		}
+//		for(int i=0;i<40;i++){			
+//			System.out.println(HomeUtil.createId());
+//		}
+		String date = HomeUtil.getNewDateToStr();
+		System.out.println(date);
 	}
 
 }

@@ -73,8 +73,10 @@
   <script type="text/javascript" src="froala_editor/js/languages/zh_cn.js"></script>
   <script type="text/javascript" src="script/cookie_util.js"></script>
   <script type="text/javascript" src="script/admin_check.js"></script>
+  <script type="text/javascript" src="script/news_save.js"></script>
+  <script type="text/javascript" src="script/base.js"></script>
    <script>
-        $(function () {
+      /*  $(function () {
             $('#edit').froalaEditor({
                 toolbarInline: false,
                 linkAlwaysBlank: true,
@@ -92,8 +94,7 @@
                 enableScript: false
 
             })
-        });
-    </script>
+        });*/
     </script>
 	
 	
@@ -107,19 +108,10 @@
   </script>
   
   <div id="edits"> 
- 	<input type="button" value="提交" id="button1" href="javascript:;;">
+ 	<input type="button" value="提交" id="news_save" href="javascript:;;">
+  	标题：<input id="title"/>
   	来源：<input id="source"/>
   	作者：<input id="author"/>
   	</div>
-  <script type="text/javascript">
-  	$("#button1").click(function(){
-  		var content = $('div #edit').froalaEditor('html.get');
-  		var source = $("#source").val().trim();
-  		var author = $("#author").val().trim();
-  		alert(content);
-  		alert(source);
-  		alert(author);
-  	});
-  </script>
 </body>
 </html>

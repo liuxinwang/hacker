@@ -43,4 +43,31 @@ where 1=1
 		and nl.is_active="1"
 		and nl.news_id = #{newsId}
 </select>
+
+<!-- 新增新闻 -->
+<insert id="save" parameterType="com.hackerhome.www.bean.NewsLibrary">
+	insert into news_library (
+		 NEWS_ID
+		,NEWS_TITLE
+		,ISSUE_TIME
+		,SOURCE
+		,AUTHOR
+		,CONTENT
+		,CREATOR
+		,CREATE_TIME
+		,UPDATOR
+		,UPDATE_TIME
+	)values(
+		 #{news_id}
+		,#{news_title}
+		,#{issue_time}
+		,#{source}
+		,#{author}
+		,#{content}
+		,#{creator}
+		,#{create_time}
+		,#{updator}
+		,#{update_time}
+	)
+</insert>
 </mapper>

@@ -13,12 +13,11 @@
 		<script type="text/javascript">
 			$(function(){
 				// 默认分页变量
-				var page = 1;
+				var page = 0;
 				var size = 40;
 				// 新闻列表加载
 				newsListLoad(page,size);
 				//分页处理
-				
 			});
 		
 		</script>
@@ -27,8 +26,8 @@
 		<div id="homepage_div">
 			<!-- log区 -->
 			<div id="log_div">
-				<span class = "log_span"><a href="http://localhost:8080/hackerhome/log_in.html" id="homepage_login">登录</a></span>
-				<span class = "log_span"><a href="http://localhost:8080/hackerhome/log_in.html" id="homepage_regist">注册</a></span>
+				<span class = "log_span"><a href="http://localhost:8080/hacker/log_in.html" id="homepage_login">登录</a></span>
+				<span class = "log_span"><a href="http://localhost:8080/hacker/log_in.html" id="homepage_regist">注册</a></span>
 				<div id="nickname_div">
 					<span class = "nickname_span"><a href="" id="user_nickname"></a></span>
 				</div>
@@ -72,7 +71,8 @@
 			<div id="foot_div">
 				<!-- 关于骇客 -->
 				<div id="about_div">
-				
+					<span><a href="http://localhost:8080/hacker/about.html">关于骇客</a></span>
+					<span><a href="http://localhost:8080/hacker/iframe.html">管理员登录</a></span>
 				</div>
 				<!-- 版权标识区 -->
 				<div id="copyright_div">
