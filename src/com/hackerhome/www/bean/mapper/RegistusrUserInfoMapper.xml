@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.hackerhome.www.dao.RegistusrUserInfoMapper">
+<!-- 新增注册用户 -->
+<insert id="save" parameterType="com.hackerhome.www.bean.RegistusrUserInfo">
+	insert into registusr_userinfo(
+		 registusr_id
+		,registusr_name
+		,registusr_nickname
+		,registusr_pwd
+	)values(
+		 #{registusr_id}
+		,#{registusr_name}
+		,#{registusr_nickname}
+		,#{registusr_pwd}
+	);
+</insert>
+
+<select id="findById" parameterType="string" resultType="com.hackerhome.www.bean.RegistusrUserInfo">
+	select 
+		* 
+	from registusr_userinfo rui
+	where 1=1
+	and rui.is_active = "1"
+	and #{registusrName} = rui.registusr_name
+	;
+</select>
+
+</mapper>
