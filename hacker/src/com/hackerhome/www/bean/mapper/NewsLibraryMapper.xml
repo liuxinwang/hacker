@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.hackerhome.www.dao.NewsLibraryMapper">
+<cache/>
+<!-- 查询新闻列表  默认查询非热点-->
+<select id="findAll" parameterType="map" resultType="com.hackerhome.www.bean.NewsLibrary">
+select 
+	t.* 
+from(
+	select 
+		 news_id
+		,news_title
+		,issue_time
+	from news_library nl
+	where 1=1
+		and nl.is_active = "1"
+		and nl.hotspot = "0"				<!-- 热点状态 0不是热点   1是热点 -->
+		order by nl.issue_time desc
+	)t limit #{page}, #{size} ;	
+</select>
+
+<!-- 热点查询 -->
+<select id="findHotspot" resultType="com.hackerhome.www.bean.NewsLibrary">
+select 
+	 news_id
+	,news_title
+	,issue_time
+from news_library nl
+where 1=1
+	and nl.is_active = "1"
+	and nl.hotspot = "1"		<!-- 热点状态 0不是热点   1是热点 -->
+	order by issue_time desc	<!-- 按发布时间倒序排序，取前两条 -->
+	limit 2
+</select>
+
+<!-- 查看新闻详情 -->
+<select id="findById" parameterType="string" resultType="com.hackerhome.www.bean.NewsLibrary">
+	select 
+		*
+	from news_library nl
+	where 1=1
+		and nl.is_active="1"
+		and nl.news_id = #{newsId}
+</select>
+</mapper>
