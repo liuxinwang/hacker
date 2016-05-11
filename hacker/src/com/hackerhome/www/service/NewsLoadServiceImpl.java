@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.hackerhome.www.bean.NewsLibrary;
 import com.hackerhome.www.dao.NewsLibraryMapper;
+import com.hackerhome.www.util.HomeUtil;
 import com.hackerhome.www.util.JsonResult;
 @Service
 public class NewsLoadServiceImpl implements NewsLoadService {
@@ -19,6 +20,7 @@ public class NewsLoadServiceImpl implements NewsLoadService {
 	/**
 	 * 新闻加载
 	 */
+	@Override
 	public JsonResult newsLoad(Map map) {
 		// 新闻加载 非热点
 		List<NewsLibrary> newsList = dao.findAll(map);	
@@ -35,12 +37,36 @@ public class NewsLoadServiceImpl implements NewsLoadService {
 	/**
 	 * 新闻预览
 	 */
+	@Override
 	public JsonResult newsPreview(String newsId) {
 		NewsLibrary news = dao.findById(newsId);
 		JsonResult result = new JsonResult();
 		result.setMsg("news load success.");
 		result.setStatus(0);
 		result.setData(news);
+		return result;
+	}
+	
+	/**
+	 * 新增新闻
+	 */
+	@Override
+	public JsonResult newSave(String newsTitle, String content, String source, String author) {
+		NewsLibrary news = new NewsLibrary();
+		news.setAuthor(author);
+		news.setSource(source);
+		news.setContent(content);
+		news.setNews_id(HomeUtil.createId());
+		news.setIssue_time(HomeUtil.getNewDateToStr());
+		news.setNews_title(newsTitle);
+		news.setCreator(null);
+		news.setCreate_time(HomeUtil.getNewDateToStr());
+		news.setUpdator(null);
+		news.setUpdate_time(HomeUtil.getNewDateToStr());
+		dao.save(news);
+		JsonResult result = new JsonResult();
+		result.setMsg("news save success.");
+		result.setStatus(0);
 		return result;
 	}
 
