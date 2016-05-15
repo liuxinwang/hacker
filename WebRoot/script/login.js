@@ -16,9 +16,9 @@ $(function(){
 			$("#warning_5").show();
 		}else{
 			if(password.length<6){
-				ok = false;
-				$("#warning_5").html("密码需要6位以上");
-				$("#warning_5").show();
+//				ok = false;
+//				$("#warning_5").html("密码需要6位以上");
+//				$("#warning_5").show();
 			}
 		}
 		//发送Ajax
@@ -30,13 +30,6 @@ $(function(){
 				dataType:"json",
 				success:function(result){
 					if(result.status==0){//成功
-						if(name=="root" && getCookie("registId")!=null){
-							//直接进入管理页面
-							window.location.href="iframe.html";
-						}else{
-							//否则进入主页
-							window.location.href="homepage.html";
-						}
 						//将用户ID存入Cookie
 						var registId = result.data.registusr_id;
 						var nickame = result.data.registusr_nickname;
@@ -44,7 +37,8 @@ $(function(){
 						addCookie("registId",registId,0.5); 
 						addCookie("nickame",nickame,0.5); 
 						addCookie("registName",registName,0.5); 
-						alert(result.msg);//提示			
+						alert(result.msg);//提示	
+						window.location.href="homepage.html"; //进入主页
 					}else if(result.status==1){//用户名不存在
 						$("#warning_4").html(result.msg);
 						$("#warning_4").show();
@@ -60,3 +54,10 @@ $(function(){
 		}
 	});
 });
+
+function keyLogin () {
+	      var event=window.event||arguments.callee.caller.arguments[0];
+	      if(event.keyCode==13){
+	          $("#login_button").click();
+	      }
+	    }

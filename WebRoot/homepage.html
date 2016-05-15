@@ -6,10 +6,11 @@
 		<link rel="stylesheet" type="text/css" href="style/homepage.css"/>
 		<script type="text/javascript" src="script/jquery.min.js"></script>
 		<script type="text/javascript" src="script/base.js"></script>
-		<script type="text/javascript" src="script/strtodate.js"></script>
 		<script type="text/javascript" src="script/homepage.js"></script>
+		<script type="text/javascript" src="script/strtodate.js"></script>
 		<script type="text/javascript" src="script/logOregistSwitch.js"></script>
 		<script type="text/javascript" src="script/cookie_util.js"></script>
+		<script type="text/javascript" src="script/admin_check.js"></script>
 		<script type="text/javascript">
 			$(function(){
 				// 默认分页变量
@@ -19,7 +20,6 @@
 				newsListLoad(page,size);
 				//分页处理
 			});
-		
 		</script>
 	</head>
 	<body>
@@ -72,7 +72,7 @@
 				<!-- 关于骇客 -->
 				<div id="about_div">
 					<span><a href="http://localhost:8080/hacker/about.html">关于骇客</a></span>
-					<span><a href="http://localhost:8080/hacker/iframe.html">管理员登录</a></span>
+					<span><a id="admin_login" href="javascript:;;">管理员登录</a></span>
 				</div>
 				<!-- 版权标识区 -->
 				<div id="copyright_div">

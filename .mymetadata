@@ -5,7 +5,7 @@
   id="myeclipse.1462942719435"
   context-root="/hacker"
   j2ee-spec="5.0"
-  archive="1111.war">
+  archive="hacker.war">
   <attributes>
     <attribute name="webrootdir" value="/WebRoot" />
   </attributes>

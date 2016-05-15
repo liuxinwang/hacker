@@ -33,6 +33,7 @@
 </head>
 
 <body>
+	<div><span><a href="http://localhost:8080/hacker/homepage.html"></a></span></div>
   <div id="editor">
   	<div id="edit"> 
   	
@@ -76,25 +77,24 @@
   <script type="text/javascript" src="script/news_save.js"></script>
   <script type="text/javascript" src="script/base.js"></script>
    <script>
-      /*  $(function () {
+        $(function () {
             $('#edit').froalaEditor({
-                toolbarInline: false,
-                linkAlwaysBlank: true,
-                language: "zh_cn",
-                direction: "ltr",
-                imageAllowedTypes: ["jpeg", "jpg", "png", "gif"],
-                autosaveInterval: 2500,
-                saveURL: 'hander/FroalaHandler.ashx',
-                saveParams: { postId: "123" },
-                spellcheck: true,
-                pastePlain: true,
-                imageAltButtons: ["floatImageLeft", "floatImageNone", "floatImageRight", "linkImage", "replaceImage", "removeImage"],
-                imageUploadURL: 'hander/FroalaHandler.ashx',
-                imageUploadParams: { postId: "123" },
-                enableScript: false
-
-            })
-        });*/
+	        imageUploadParam: 'image_param',
+	        // Set the image upload URL.
+	        imageUploadURL: '/hacker/upload_image.do',
+	        // Additional upload params.
+	        imageUploadParams: {id: 'my_editor'},
+	        // Set request type.
+	        imageUploadMethod: 'POST',
+	        // Set max image size to 5MB.
+	        imageMaxSize: 5 * 1024 * 1024,
+	        // Allow to upload PNG and JPG.
+	        imageAllowedTypes: ['jpeg', 'jpg', 'png']
+	      })
+	      .on('froalaEditor.image.error', function (e, editor, error, response) {
+	    	  alert("上传失败！");
+	      });
+	      });
     </script>
 	
 	
