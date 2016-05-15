@@ -11,6 +11,7 @@
 		<script type="text/javascript" src="script/logOregistSwitch.js"></script>
 		<script type="text/javascript" src="script/cookie_util.js"></script>
 		<script type="text/javascript" src="script/admin_check.js"></script>
+		<script type="text/javascript" src="script/logout.js"></script>
 		<script type="text/javascript">
 			$(function(){
 				// 默认分页变量
@@ -21,15 +22,26 @@
 				//分页处理
 			});
 		</script>
+		<script type="text/javascript">
+			$(function(){
+				$(".log_span").click(function(){
+					window.location.href = base_url + "/log_in.html";
+				});
+				$("#about").click(function(){
+					window.location.href = base_url + "/about.html";
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<div id="homepage_div">
 			<!-- log区 -->
 			<div id="log_div">
-				<span class = "log_span"><a href="http://localhost:8080/hacker/log_in.html" id="homepage_login">登录</a></span>
-				<span class = "log_span"><a href="http://localhost:8080/hacker/log_in.html" id="homepage_regist">注册</a></span>
+				<span class = "log_span"><a href="javascript:;;" id="homepage_login">登录</a></span>
+				<span class = "log_span"><a href="javascript:;;" id="homepage_regist">注册</a></span>
 				<div id="nickname_div">
 					<span class = "nickname_span"><a href="" id="user_nickname"></a></span>
+					<span class = "nickname_span"><a href="" id="logout"></a></span>
 				</div>
 			</div>
 			<!-- 热点区 -->
@@ -71,7 +83,7 @@
 			<div id="foot_div">
 				<!-- 关于骇客 -->
 				<div id="about_div">
-					<span><a href="http://localhost:8080/hacker/about.html">关于骇客</a></span>
+					<span><a href="javascript:;;" id="about">关于骇客</a></span>
 					<span><a id="admin_login" href="javascript:;;">管理员登录</a></span>
 				</div>
 				<!-- 版权标识区 -->
