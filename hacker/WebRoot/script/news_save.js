@@ -27,7 +27,7 @@ $(function(){
 					dataType:"json",
 					success:function(result){
 						if(result.status==0){//成功
-							alert(result.msg);//提示	
+							alert("新闻新增成功");//提示	
 						}
 					},
 					error:function(){

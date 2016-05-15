@@ -5,7 +5,7 @@ window.onload=function(){
 		if(registName==null || registName != "root" && registName != "liu"){
 			alert("非管理员不允许登录！");
 		} else {
-			window.location.href = "http://localhost:8080/hacker/xheditor.html";
+			window.location.href = base_url+"/xheditor.html";
 		}
 	});
 }

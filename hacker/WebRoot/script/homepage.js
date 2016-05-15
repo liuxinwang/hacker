@@ -6,6 +6,7 @@ function newsListLoad(page,size){
 	var nickame = getCookie("nickame");
 	if(registId != null){
 		$("#user_nickname").html(nickame);
+		$("#logout").html("退出");
 		$(".log_span").hide();
 	} else {
 		$("#nickname_div").hide();
