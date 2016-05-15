@@ -26,16 +26,18 @@ function newsListLoad(page,size){
 				for(var v=0;v<newsList.length;v++){
 					var newsTitle = newsList[v].news_title;
 					var issueTime = newsList[v].issue_time;
+					var newsId = newsList[v].news_id;
 					issueTime = strToDate(issueTime);
 					var s_li  = '<li>';
 						s_li += '<span class="title">';
-					 	s_li += '<a href="newspreview.html" target="_Blank">';
+					 	s_li += '<a href="javascript:;;">';
 					 	s_li += newsTitle+"  ";
 					 	s_li += '</a>';
 					 	s_li += '</span>';
 						s_li += '<span class="date">'+issueTime+'</span>';
 					 	s_li += '</li>';
 					$li = $(s_li);
+					$li.data("newsId",newsId);
 					if(v<20){									
 						$("#newsleft_div ul").append($li);
 					}else{
