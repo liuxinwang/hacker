@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>骇客之家</title>
+		<title>红兔船长</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="style/homepage.css"/>
 		<script type="text/javascript" src="script/jquery.min.js"></script>
@@ -12,6 +12,7 @@
 		<script type="text/javascript" src="script/cookie_util.js"></script>
 		<script type="text/javascript" src="script/admin_check.js"></script>
 		<script type="text/javascript" src="script/logout.js"></script>
+		<script type="text/javascript" src="script/getNewsId.js"></script>
 		<script type="text/javascript">
 			$(function(){
 				// 默认分页变量
@@ -30,6 +31,11 @@
 				$("#about").click(function(){
 					window.location.href = base_url + "/about.html";
 				});
+			});
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				$(".newsUl").on("click","li",getNewsId);
 			});
 		</script>
 	</head>
@@ -53,7 +59,7 @@
 				<!-- 新闻区  左-->
 				<div id="newsleft_div">
 					<div>
-						<ul id="news_ul">
+						<ul class="newsUl" id="news_ul">
 						
 						</ul>
 					</div>
@@ -64,7 +70,7 @@
 				</div>
 				<!-- 新闻区  右-->
 				<div id="newsright_div">
-					<ul id="news_ul">
+					<ul class="newsUl" id="news_ul">
 					
 					</ul>
 				</div>
@@ -83,12 +89,16 @@
 			<div id="foot_div">
 				<!-- 关于骇客 -->
 				<div id="about_div">
-					<span><a href="javascript:;;" id="about">关于骇客</a></span>
+					<span><a href="javascript:;;" id="about">关于</a></span>
 					<span><a id="admin_login" href="javascript:;;">管理员登录</a></span>
 				</div>
 				<!-- 版权标识区 -->
-				<div id="copyright_div">
-				
+				<div id="copyright_div" style="color: #666666">
+					<br/><br/><br/><br/>
+					<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#bfbfbf SIZE=3>
+					<br/><br/>
+					<p style="color: #c7c7c7">Copyright © 2016 Captain. All Rights Reserved.</p>
+					<p style="color: #c7c7c7">红兔船长版权所有</p>
 				</div>
 			</div>
 			<script type="text/javascript">

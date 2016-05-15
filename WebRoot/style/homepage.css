@@ -60,7 +60,7 @@ body {
 #foot_div {
 	/** border: 1px solid green; */
 	height:292.5px;
-	background-image: url(../image/foot.jpg);
+	background-color: #666666;
 }
 #paging_div span {
 	/** border: 1px solid green; */ 

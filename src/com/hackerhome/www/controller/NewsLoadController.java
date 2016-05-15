@@ -44,9 +44,9 @@ public class NewsLoadController {
 	 * @param newsId
 	 * @return
 	 */
-	@RequestMapping("/newspreview.do")
+	@RequestMapping("/preview.do")
 	@ResponseBody
-	public JsonResult newsPreview(String newsId){
+	public JsonResult preview(String newsId){
 		JsonResult result = service.newsPreview(newsId);
 		return result;
 	}
