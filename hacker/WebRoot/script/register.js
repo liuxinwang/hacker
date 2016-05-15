@@ -17,9 +17,9 @@ $(function(){
 			$("#warning_2").show();
 		}else{
 			if(password.length<6){
-				ok = false;
-				$("#warning_2").html("密码需要6位以上");
-				$("#warning_2").show();
+//				ok = false;
+//				$("#warning_2").html("密码需要6位以上");
+//				$("#warning_2").show();
 			}
 		}
 		if(final_password != password){

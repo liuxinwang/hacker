@@ -16,4 +16,31 @@
 		<servlet-name>springmvc</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-</web-app>
+	<filter>
+		<description>解决参数传递过程中的乱码问题</description>
+		<filter-name>CharacterEncodingUTF8</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CharacterEncodingUTF8</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 过滤器 -->
+	<!--<filter>
+	    <filter-name>filter1</filter-name>
+	    <filter-class>com.hackerhome.www.filter.CommentFilter</filter-class>
+	     初始化参数，由FilterConfig对象读取
+	    <init-param>
+	        <param-name>illegalStr</param-name>
+	        <param-value>1</param-value>
+	    </init-param>
+	</filter> 
+	<filter-mapping>
+	    <filter-name>filter1</filter-name>
+	    <url-pattern>*.do</url-pattern>
+	</filter-mapping>
+--></web-app>
