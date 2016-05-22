@@ -61,6 +61,11 @@
 	  	标题：<input id="title"/>
 	  	来源：<input id="source"/>
 	  	作者：<input id="author"/><br/><br/>
-	  	<a href="http://localhost:8080/hacker/homepage.html">回主页</a>
+	  	<a id="result" href="javascript:;;">回主页</a>
+	  	<script type="text/javascript">
+			$("#result").click(function(){
+				window.location.href = "homepage.html";
+			});
+		</script>
 	</body>
 </html>
