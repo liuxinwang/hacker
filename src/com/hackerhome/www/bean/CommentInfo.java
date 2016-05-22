@@ -1,7 +1,8 @@
 package com.hackerhome.www.bean;
 
 public class CommentInfo {
-	private String leavemsg_id;			// 评论标识
+	private String comment_id;			// 评论标识
+	private String news_id;				// 文章标识
 	private String msg_psn_name;		// 评论者姓名
 	private String comment_content;		//评论内容
 	private String comment_time;		// 评论时间
@@ -12,12 +13,21 @@ public class CommentInfo {
 	private String create_time;			// 创建日期
 	private String updator;				// 修改人
 	private String update_time;			// 修改日期
+	private String support;				// 支持
+	private String opposition;			// 反对
 	
-	public String getLeavemsg_id() {
-		return leavemsg_id;
+	
+	public String getComment_id() {
+		return comment_id;
 	}
-	public void setLeavemsg_id(String leavemsgId) {
-		leavemsg_id = leavemsgId;
+	public void setComment_id(String commentId) {
+		comment_id = commentId;
+	}
+	public String getNews_id() {
+		return news_id;
+	}
+	public void setNews_id(String newsId) {
+		news_id = newsId;
 	}
 	public String getMsg_psn_name() {
 		return msg_psn_name;
@@ -78,6 +88,18 @@ public class CommentInfo {
 	}
 	public void setUpdate_time(String updateTime) {
 		update_time = updateTime;
+	}
+	public String getSupport() {
+		return support;
+	}
+	public void setSupport(String support) {
+		this.support = support;
+	}
+	public String getOpposition() {
+		return opposition;
+	}
+	public void setOpposition(String opposition) {
+		this.opposition = opposition;
 	}
 	
 

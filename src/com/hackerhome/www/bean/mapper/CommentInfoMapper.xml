@@ -2,5 +2,81 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="com.hackerhome.www.dao.CommentInfoMapper">
-
+	
+	<!-- 评论新增 -->
+	<insert id="save" parameterType="com.hackerhome.www.bean.CommentInfo">
+		insert into COMMENT_INFO(
+			 COMMENT_ID
+			,NEWS_ID
+			,MSG_PSN_NAME
+			,COMMENT_CONTENT
+			,COMMENT_TIME
+			,REGISTUSR_ID
+<!--			,IS_PUB-->
+<!--			,IS_ACTIVE-->
+<!--			,CREATOR-->
+<!--			,CREATE_TIME-->
+<!--			,UPDATOR-->
+<!--			,UPDATE_TIME-->
+		)values(
+			 #{comment_id}
+			,#{news_id}
+			,#{msg_psn_name}
+			,#{comment_content}
+			,#{comment_time}
+			,#{registusr_id}
+<!--			,#{is_pub}-->
+<!--			,#{is_active}-->
+<!--			,#{creator}-->
+<!--			,#{create_time}-->
+<!--			,#{updator}-->
+<!--			,#{update_time}-->
+		)
+	</insert>
+	
+	<!-- 评论更新 -->
+	<update id="update" parameterType="com.hackerhome.www.bean.CommentInfo">
+		update COMMENT_INFO 
+		<if test="comment_id != null and comment_id != ''">
+			<set>
+				<if test="news_id != null">NEWS_ID=#{news_id},</if>
+				<if test="msg_psn_name != null">MSG_PSN_NAME=#{msg_psn_name},</if>
+				<if test="comment_content != null">COMMENT_CONTENT=#{comment_content},</if>
+				<if test="comment_time != null">COMMENT_TIME=#{comment_time},</if>
+				<if test="registusr_id != null">REGISTUSR_ID=#{registusr_id},</if>
+				<if test="is_pub != null">IS_PUB=#{is_pub},</if>
+				<if test="is_active != null">IS_ACTIVE=#{is_active},</if>
+				<if test="creator != null">CREATOR=#{creator},</if>
+				<if test="create_time != null">CREATE_TIME=#{create_time},</if>
+				<if test="updator != null">UPDATOR=#{updator},</if>
+				<if test="update_time != null">UPDATE_TIME=#{update_time},</if>
+				<if test="support != null">SUPPORT=#{support},</if>
+				<if test="opposition != null">OPPOSITION=#{opposition}</if>
+			</set>
+			<where> 1=1
+				and IS_ACTIVE = '1'
+				and COMMENT_ID=#{comment_id}
+			</where> 
+		</if>
+			
+	</update>
+	
+	<!-- 评论删除 -->
+	<delete id="delete" parameterType="string">
+		delete from COMMENT_INFO where COMMENT_ID=#{comment_id}
+	</delete>
+	
+	<!-- 评论查询 -->
+	<select id="selectList" resultType="com.hackerhome.www.bean.CommentInfo">
+		select * from COMMENT_INFO
+		<where> 1=1
+		</where>
+		<![CDATA[
+		order by COMMENT_TIME desc
+		]]>
+		<!--<if test="page != null and size != null">
+			limit page,size
+		</if>
+	--></select>
+	
 </mapper>
