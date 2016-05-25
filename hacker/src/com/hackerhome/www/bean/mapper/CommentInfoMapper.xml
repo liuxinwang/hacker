@@ -67,9 +67,10 @@
 	</delete>
 	
 	<!-- 评论查询 -->
-	<select id="selectList" resultType="com.hackerhome.www.bean.CommentInfo">
-		select * from COMMENT_INFO
+	<select id="selectList" parameterType="string" resultType="com.hackerhome.www.bean.CommentInfo">
+		select * from COMMENT_INFO comment
 		<where> 1=1
+			and comment.NEWS_ID = #{newsId}
 		</where>
 		<![CDATA[
 		order by COMMENT_TIME desc
