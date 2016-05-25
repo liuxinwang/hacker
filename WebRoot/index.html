@@ -1,71 +1,121 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link href="froala_editor/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link href="froala_editor/css/froala_editor.min.css" rel="stylesheet" type="text/css">
-
-
-    <style>
-        body {
-            text-align: center;
-        }
-
-        section {
-            width: 80%;
-            margin: auto;
-            text-align: left;
-        }
-    </style>
-</head>
-
-<body>
-  <section id="editor">
-      <div id='edit' style="margin-top: 30px;">
-          <img class="fr-fir" src="froala_editor/img/old_clock.jpg" alt="Old Clock" width="300"/>
-
-          <h1>Click and edit</h1>
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis diam in odio iaculis blandit. Nunc eu mauris sit amet purus viverra gravida ut a dui. Vivamus nec rutrum augue, pharetra faucibus purus. Maecenas non orci sagittis, vehicula lorem et, dignissim nunc. Suspendisse suscipit, diam non varius facilisis, enim libero tincidunt magna, sit amet iaculis eros libero sit amet eros. Vestibulum a rhoncus felis. Nam lacus nulla, consequat ac lacus sit amet, accumsan pellentesque risus. Aenean viverra mi at urna mattis fermentum. Curabitur porta metus in tortor elementum, in semper nulla ullamcorper. Vestibulum mattis tempor tortor quis gravida. In rhoncus risus nibh. Nullam condimentum dapibus massa vel fringilla. Sed hendrerit sed est quis facilisis. Ut sit amet nibh sem. Pellentesque imperdiet mollis libero.</p>
-
-          <p><a href="http://google.com" title="Aenean sed hendrerit">Aenean sed hendrerit</a> velit. Nullam eu mi dolor. Maecenas et erat risus. Nulla ac auctor diam, non aliquet ante. Fusce ullamcorper, ipsum id tempor lacinia, sem tellus malesuada libero, quis ornare sem massa in orci. Sed dictum dictum tristique. Proin eros turpis, ultricies eu sapien eget, ornare rutrum ipsum. Pellentesque eros nisl, ornare nec ipsum sed, aliquet sollicitudin erat. Nulla tincidunt porta vehicula.</p>
-
-          <p>Nullam laoreet imperdiet orci ac euismod. Curabitur vel lectus nisi. Phasellus accumsan aliquet augue, eu rutrum tellus iaculis in. Nunc viverra ultrices mollis. Curabitur malesuada nunc massa, ut imperdiet arcu lobortis sed. Cras ac arcu mauris. Maecenas id lectus nisl. Donec consectetur scelerisque quam at ultricies. Nam quis magna iaculis, condimentum metus ut, elementum metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus id tempus nisi.</p>
-      </div>
-  </section>
-
-  <script src="froala_editor/js/libs/jquery-1.11.1.min.js"></script>
-  <script src="froala_editor/js/froala_editor.min.js"></script>
-  <!--[if lt IE 9]>
-    <script src="froala_editor/js/froala_editor_ie8.min.js"></script>
-  <![endif]-->
-  <script src="froala_editor/js/plugins/tables.min.js"></script>
-  <script src="froala_editor/js/plugins/lists.min.js"></script>
-  <script src="froala_editor/js/plugins/colors.min.js"></script>
-  <script src="froala_editor/js/plugins/media_manager.min.js"></script>
-  <script src="froala_editor/js/plugins/font_family.min.js"></script>
-  <script src="froala_editor/js/plugins/font_size.min.js"></script>
-  <script src="froala_editor/js/plugins/block_styles.min.js"></script>
-  <script src="froala_editor/js/plugins/video.min.js"></script>
-  <script src="froala_editor/js/langs/zh_cn.js"></script>
-
-  <script>
-      $(function(){
-          $('#edit').editable({inlineMode: false, alwaysBlank: true, language: 'zh_cn'})
-      });
-      
-  </script>
-  <div>  
-  	<input type="button" name="text" href="javascript:;;" id="button1">
-  	<input>
-  </div>
-  	
-  <script type="text/javascript">
-  $(function(){
-	  $("#button1").click(function(){
-		  var text = $('div#froala-editor').froalaeditor('html.get');
-      	alert(text);
-	  });
-  });
-  </script>
-</body>
+	<head>
+		<title>红兔船长</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style/homepage.css"/>
+		<script type="text/javascript" src="script/jquery.min.js"></script>
+		<script type="text/javascript" src="script/base.js"></script>
+		<script type="text/javascript" src="script/homepage.js"></script>
+		<script type="text/javascript" src="script/strtodate.js"></script>
+		<script type="text/javascript" src="script/logOregistSwitch.js"></script>
+		<script type="text/javascript" src="script/cookie_util.js"></script>
+		<script type="text/javascript" src="script/admin_check.js"></script>
+		<script type="text/javascript" src="script/logout.js"></script>
+		<script type="text/javascript" src="script/getNewsId.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				// 默认分页变量
+				var page = 0;
+				var size = 40;
+				// 新闻列表加载
+				newsListLoad(page,size);
+				//分页处理
+			});
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				$(".log_span").click(function(){
+					window.location.href = base_url + "/log_in.html";
+				});
+				$("#about").click(function(){
+					window.location.href = base_url + "/about.html";
+				});
+			});
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				$(".newsUl").on("click","li",getNewsId);
+			});
+		</script>
+	</head>
+	<body>
+		<div id="homepage_div">
+			<!-- log区 -->
+			<div id="log_div">
+				<span class = "log_span"><a href="javascript:;;" id="homepage_login">登录</a></span>
+				<span class = "log_span"><a href="javascript:;;" id="homepage_regist">注册</a></span>
+				<div id="nickname_div">
+					<span class = "nickname_span"><a href="" id="user_nickname"></a></span>
+					<span class = "nickname_span"><a href="" id="logout"></a></span>
+				</div>
+			</div>
+			<!-- 热点区 -->
+			<div id="hot_div">
+			
+			</div>
+			<!-- 新闻区 -->
+			<div id="news_div">
+				<!-- 新闻区  左-->
+				<div id="newsleft_div">
+					<div>
+						<ul class="newsUl" id="news_ul">
+						
+						</ul>
+					</div>
+				</div>
+				<!-- 分割线-->
+				<div id="splitline_div">
+				
+				</div>
+				<!-- 新闻区  右-->
+				<div id="newsright_div">
+					<ul class="newsUl" id="news_ul">
+					
+					</ul>
+				</div>
+			</div>
+			<!-- 分页区-->
+			<div id="paging_div">
+				<span class="page_num">
+					<a href="javascript:;;">1</a>
+					<a href="javascript:;;">2</a>
+					<a href="javascript:;;">3</a>
+					<a href="javascript:;;">4</a>
+					<a href="javascript:;;">5</a>
+				</span>
+			</div>
+			<!-- 版权区-->
+			<div id="foot_div">
+				<!-- 关于骇客 -->
+				<div id="about_div">
+					<span><a href="javascript:;;" id="about">关于</a></span>
+					<span><a id="admin_login" href="javascript:;;">管理员登录</a></span>
+				</div>
+				<!-- 版权标识区 -->
+				<div id="copyright_div" style="color: #666666">
+					<br/><br/><br/><br/>
+					<!-- 分割线 -->
+					<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#bfbfbf SIZE=3>
+					<br/><br/>
+					<p style="color: #c7c7c7">Copyright © 2016 Captain. All Rights Reserved.</p>
+					<p style="color: #c7c7c7">红兔船长版权所有</p>
+				</div>
+			</div>
+			<script type="text/javascript">
+				$(function(){ 
+					$('.page_num a').click(function(){
+						$(this).parent().each(function () {//移除其余非点中状态
+							$('.page_num a').removeClass();
+						});
+						$(this).addClass("checked");//给所点中的增加样式
+						var size = 40;
+						var page = ($(this).text() - 1) * size;//输出所点的a的内容
+						newsListLoad(page,size);
+					})
+				})
+			</script>
+			
+		</div>
+	</body>
 </html>

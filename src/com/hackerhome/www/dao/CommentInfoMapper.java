@@ -6,7 +6,7 @@ import com.hackerhome.www.bean.CommentInfo;
 
 public interface CommentInfoMapper {
 	
-	public List<CommentInfo> selectList();
+	public List<CommentInfo> selectList(String newsId);
 	
 	public void save(CommentInfo comment);
 	

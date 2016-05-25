@@ -55,8 +55,8 @@ public class CommentServiceImpl implements CommentService {
 	 * 评论查询
 	 */
 	@Override
-	public JsonResult selectList() {
-		List<CommentInfo> list = commentInfoDao.selectList();
+	public JsonResult selectList(String newsId) {
+		List<CommentInfo> list = commentInfoDao.selectList(newsId);
 		JsonResult result = new JsonResult();
 		result.setMsg("Comment selectList success.");
 		result.setStatus(0);

@@ -25,8 +25,8 @@ public class CommentController {
 	
 	@RequestMapping("/selectlist.do")
 	@ResponseBody
-	public JsonResult selectList(){
-		JsonResult result = commentService.selectList();
+	public JsonResult selectList(String newsId){
+		JsonResult result = commentService.selectList(newsId);
 			return result;
 	}
 	

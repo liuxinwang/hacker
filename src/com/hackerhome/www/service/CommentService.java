@@ -15,7 +15,7 @@ public interface CommentService {
 	/**
 	 * 评论查询
 	 */
-	public JsonResult selectList();
+	public JsonResult selectList(String newsId);
 	
 	/**
 	 * 评论更新
