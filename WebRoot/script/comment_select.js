@@ -20,7 +20,7 @@ $(function (){
 						var content = commentList[i].comment_content;
 						var msgPsnName = commentList[i].msg_psn_name;
 						var commentime = strToTime(commentList[i].comment_time); //2016-4-29 22:02:30
-						var floor = i+1;
+						var floor = commentList.length-i;
 						var sup = commentList[i].support;
 						var opp = commentList[i].opposition;
 //						li = "<li style='border:1px solid green;padding:8px;'>"+content+"</li><br/>";

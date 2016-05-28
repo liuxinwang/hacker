@@ -24,58 +24,11 @@
 		<script type="text/javascript" src="script/strtodate.js"></script>
 		<script type="text/javascript" src="script/comment_save.js"></script>
 		<script type="text/javascript" src="script/comment_select.js"></script>
-		<script type="text/javascript">
-		$(function pageInit() {
-			$('#elm2').xheditor( {
-				tools : 'mini',  
-	            skin : 'vista',  
-	            showBlocktag : false,  
-	            internalScript : false,  
-	            internalStyle : false,  
-	            width : 730,  
-	            height : 200,  
-	            fullscreen : false,  
-	            sourceMode : false,  
-	            forcePtag : false,  
-	            html5Upload : false, 
-				//upLinkUrl:超链接上传接口地址
-				upLinkUrl : "upload.php",
-				//upLinkExt:超链接本地上传扩展限制
-				upLinkExt : "zip,rar,txt",
-				//upImgUrl:图片上传接口地址
-				upImgUrl : "upload/image.do",
-				//upImgExt:图片本地上传扩展限制
-				upImgExt : "jpg,jpeg,gif,png",
-				//upFlashUrl:动画上传接口地址
-				upFlashUrl : "upload.php",
-				//upFlashExt:动画本地上传扩展限制
-				upFlashExt : "swf",
-				//upMediaUrl:视频上传接口地址
-				upMediaUrl : "upload.php",
-				//upMediaExt:视频本地上传扩展限制
-				upMediaExt : "wmv,avi,wma,mp3,mid",
-				onUpload : insertUpload
-			});
-			
-			//图片上传回调函数  
-		function insertUpload(msg) {
-			var _msg = msg.toString();
-			//插入图片到编辑器
-	//		$("#content").append(_msg);
-		}
-			
-		});
-		</script>
+		<script type="text/javascript" src="script/comment_imgupload.js"></script>
 	</head>
-	<body>
+	<body id="body">
 		<!-- 加载文章内容模块 -->
 		<div id="news_priview">
-<!--			<h2>标题</h2>-->
-<!--			作者：<span></span>-->
-<!--			来源：<span></span><br/><br/>-->
-			<!-- 分割线 -->
-<!--			<HR style="FILTER: progid:DXImageTransform.Microsoft.Glow(color=#987cb9,strength=10)" width="80%" color=#987cb9 SIZE=1>-->
-<!--			<br/><br/><br/>-->
 			<!-- 动态加载数据 -->
 		</div>
 		<!-- 评论编辑器 -->
@@ -83,34 +36,16 @@
 			<textarea id="elm2" name="elm2" rows="12" 
 				cols="80" style="width: 80%">欢迎使用xhEditor</textarea><br/><br/>
 		</div>
-		<div id="submit" style="text-align:right"><input type="button" value="提交" id="comment_save"></div>
+		<div id="submit" style="text-align:right">
+			<input type="button" value="提交" id="comment_save">
+		</div>
 		<!-- 分割线 -->
 		<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="56%" color=#bfbfbf SIZE=3>
-		<!-- 评论内容展示模块 -->
+		 <!-- 评论内容展示模块  -->
 		<div id="show_comment">
-			<ul style="width:715px;list-style-type: none;
-						text-align:left;padding:8px;">
-				<!--<li style="border:1px solid green;padding:8px;">
-					<div>
-						<a href=""><img src="userimg/20160518192424.jpg" style="width:50px;height: 50px;"/></a>
-						<span>xxxx 2016-4-29 22:02:30</span>  <span>4楼</span>
-					</div>
-					<div>
-						<span>评论的内容在这里显示
-						评论的内容在这里显示评论的内容在这里显示评论的内容在这里显示评论的内容在这里显示
-						评论的内容在这里显示评论的内容在这里显示评论的内容在这里显示评论的内容在这里显示
-						评论的内容在这里显示评论的内容在这里显示</span>
-					</div>
-					<div>
-						<a id="sup_a" href="javascript:;;">赞同</a>
-						<span id="sup">(0)</span>   
-						<a id="opp_a" href="javascript:;;">反对</a>
-						<span id="opp">(0)</span>
-					</div>
-				</li>
-				<br/>
-			--></ul>
-		
+			<ul style="width:715px;list-style-type: none;text-align:left;padding:8px;">
+				
+			</ul>
 		</div>
 	</body>
 </html>

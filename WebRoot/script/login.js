@@ -38,7 +38,7 @@ $(function(){
 						addCookie("nickame",nickame,0.5); 
 						addCookie("registName",registName,0.5); 
 						alert(result.msg);//提示	
-						window.location.href="homepage.html"; //进入主页
+						window.location.href= ""+web_url; //进入主页
 					}else if(result.status==1){//用户名不存在
 						$("#warning_4").html(result.msg);
 						$("#warning_4").show();
