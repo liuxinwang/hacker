@@ -19,7 +19,7 @@
 			$(function(){
 				// 默认分页变量
 				var page = 0;
-				var size = 40;
+				var size = 20;
 				// 新闻列表加载
 				newsListLoad(page,size);
 				//分页处理
@@ -37,7 +37,8 @@
 		</script>
 		<script type="text/javascript">
 			$(function(){
-				$(".newsUl").on("click","li",getNewsId);
+				$(".news_tbody").on("click","a",getNewsId);
+				$("#right_hot").on("click","a",getNewsId);
 			});
 		</script>
 	</head>
@@ -46,6 +47,7 @@
 			<!-- log区 -->
 			<div id="log_div">
 				<span class = "log_span"><a href="javascript:;;" id="homepage_login">登录</a></span>
+				<span class = "log_span" style="color:white; opacity:0.7">|</span>
 				<span class = "log_span"><a href="javascript:;;" id="homepage_regist">注册</a></span>
 				<div id="nickname_div">
 					<span class = "nickname_span"><a href="" id="user_nickname"></a></span>
@@ -54,28 +56,22 @@
 			</div>
 			<!-- 热点区 -->
 			<div id="hot_div">
-			
+				<div id="left_hot">
+				</div>
+				<div id="right_hot">
+					<!-- 热点数据动态生成 -->
+				</div>
 			</div>
 			<!-- 新闻区 -->
 			<div id="news_div">
-				<!-- 新闻区  左-->
-				<div id="newsleft_div">
-					<div>
-						<ul class="newsUl" id="news_ul">
-						
-						</ul>
-					</div>
-				</div>
-				<!-- 分割线-->
-				<div id="splitline_div">
-				
-				</div>
-				<!-- 新闻区  右-->
-				<div id="newsright_div">
-					<ul class="newsUl" id="news_ul">
-					
-					</ul>
-				</div>
+				<table id="news_table" border="1" cellpadding="0" cellspacing="0">
+					<thead>
+						<tr><th width="70%">标题</th><th width="10%">作者</th><th>时间</th></tr>
+					</thead>
+					<tbody class="news_tbody">
+						<!-- 非热点数据动态生成 -->
+					</tbody>
+				</table>
 			</div>
 			<!-- 分页区-->
 			<div id="paging_div">
@@ -89,19 +85,12 @@
 			</div>
 			<!-- 版权区-->
 			<div id="foot_div">
-				<!-- 关于骇客 -->
 				<div id="about_div">
+				<br/>
 					<span><a href="javascript:;;" id="about">关于</a></span>
 					<span><a id="admin_login" href="javascript:;;">管理员登录</a></span>
-				</div>
-				<!-- 版权标识区 -->
-				<div id="copyright_div" style="color: #666666">
-					<br/><br/><br/><br/>
-					<!-- 分割线 -->
-					<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#bfbfbf SIZE=3>
-					<br/><br/>
-					<p style="color: #c7c7c7">Copyright © 2016 Captain. All Rights Reserved.</p>
-					<p style="color: #c7c7c7">红兔船长版权所有</p>
+					<p>Copyright © 2016 Captain. All Rights Reserved.</p>
+					<p>红兔船长版权所有</p>
 				</div>
 			</div>
 			<script type="text/javascript">
@@ -111,13 +100,12 @@
 							$('.page_num a').removeClass();
 						});
 						$(this).addClass("checked");//给所点中的增加样式
-						var size = 40;
+						var size = 20;
 						var page = ($(this).text() - 1) * size;//输出所点的a的内容
 						newsListLoad(page,size);
 					})
 				})
-			</script>
-			
+			</script>	
 		</div>
 	</body>
 </html>

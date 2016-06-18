@@ -1,0 +1,28 @@
+body {
+	text-align:center;
+}
+#log_div {
+	margin:auto;
+	font: 13px/15px Arial,宋体;
+	width: 960px;
+}
+#style_set {
+	/**border: 1px solid green; */
+	margin:auto;
+	margin-top: 10px;
+	width: 720px;
+	font: 13px/15px Arial,宋体;
+}
+#gotop {
+	position: fixed;
+	top:550px;
+	left: 1230px;
+	height: 50px;
+	width: 50px;
+	display: block;
+	background-image: url(../image/returntop1.png);
+}
+#gotop:hover {
+	transition:background-image 0.5s linear;
+	background-image: url(../image/returntop2.png); 
+} 

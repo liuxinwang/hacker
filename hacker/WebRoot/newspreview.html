@@ -3,13 +3,8 @@
 	<head>
 		<title>新闻预览</title>
 		<meta charset="UTF-8">
-		<style type="text/css">
-			#news_priview,#submit,#comment,#show_comment{
-				margin:auto;
-				text-align:center;
-				width: 720px;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="style/newspre.css"/>
+		<link rel="stylesheet" type="text/css" href="style/homepage.css"/>
 		<LINK REL="SHORTCUT ICON" HREF="favicon.ico">
 		<script type="text/javascript" src="script/jquery.min.js"></script>
 		<script type="text/javascript" src="script/cookie_util.js"></script>
@@ -27,26 +22,39 @@
 		<script type="text/javascript" src="script/comment_select.js"></script>
 		<script type="text/javascript" src="script/comment_imgupload.js"></script>
 	</head>
-	<body id="body">
-		<!-- 加载文章内容模块 -->
-		<div id="news_priview">
-			<!-- 动态加载数据 -->
+	<body id="prebody">
+		<a id="gotop" href="#prebody"></a>
+		<!-- log区 -->
+		<div id="log_div">
+			<span class = "log_span"><a href="javascript:;;" id="homepage_login">登录</a></span>
+			<span class = "log_span" style="color:white; opacity:0.7">|</span>
+			<span class = "log_span"><a href="javascript:;;" id="homepage_regist">注册</a></span>
+			<div id="nickname_div">
+				<span class = "nickname_span"><a href="" id="user_nickname"></a></span>
+				<span class = "nickname_span"><a href="" id="logout"></a></span>
+			</div>
 		</div>
-		<!-- 评论编辑器 -->
-		<div id="comment">
-			<textarea id="elm2" name="elm2" rows="12" 
-				cols="80" style="width: 80%">欢迎使用xhEditor</textarea><br/><br/>
-		</div>
-		<div id="submit" style="text-align:right">
-			<input type="button" value="提交" id="comment_save">
-		</div>
-		<!-- 分割线 -->
-		<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="56%" color=#bfbfbf SIZE=3>
-		 <!-- 评论内容展示模块  -->
-		<div id="show_comment">
-			<ul style="width:715px;list-style-type: none;text-align:left;padding:8px;">
-				
-			</ul>
+		<div id="style_set">
+			<!-- 加载文章内容模块 -->
+			<div id="news_priview">
+				<!-- 动态加载数据 -->
+			</div>
+			<!-- 评论编辑器 -->
+			<div id="comment">
+				<textarea id="elm2" name="elm2" rows="12" 
+					cols="80" style="width: 80%">欢迎使用xhEditor</textarea><br/><br/>
+			</div>
+			<div id="submit" style="text-align:right">
+				<input type="button" value="提交" id="comment_save">
+			</div>
+			<!-- 分割线 -->
+			<HR style="FILTER: alpha(opacity=100,finishopacity=0,style=3)" width="56%" color=#bfbfbf SIZE=3>
+			 <!-- 评论内容展示模块  -->
+			<div id="show_comment">
+				<ul style="width:715px;list-style-type: none;text-align:left;padding:8px;">
+					
+				</ul>
+			</div>
 		</div>
 	</body>
 </html>

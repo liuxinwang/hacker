@@ -9,9 +9,10 @@ select
 	t.* 
 from(
 	select 
-		 news_id
-		,news_title
-		,issue_time
+		 nl.news_id
+		,nl.news_title
+		,nl.author
+		,nl.issue_time
 	from news_library nl
 	where 1=1
 		and nl.is_active = "1"
@@ -23,9 +24,9 @@ from(
 <!-- 热点查询 -->
 <select id="findHotspot" resultType="com.hackerhome.www.bean.NewsLibrary">
 select 
-	 news_id
-	,news_title
-	,issue_time
+	 nl.news_id
+	,nl.news_title
+	,nl.content
 from news_library nl
 where 1=1
 	and nl.is_active = "1"
@@ -70,4 +71,9 @@ where 1=1
 		,#{update_time}
 	)
 </insert>
+
+<!-- 更新阅读量 -->
+<update id="update" parameterType="map">
+	update news_library set PVIEWS = #{pviews} where news_id = #{newsId}
+</update>
 </mapper>

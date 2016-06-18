@@ -1,5 +1,6 @@
 package com.hackerhome.www.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,6 +41,14 @@ public class NewsLoadServiceImpl implements NewsLoadService {
 	@Override
 	public JsonResult newsPreview(String newsId) {
 		NewsLibrary news = dao.findById(newsId);
+		if (news != null) {
+			//同步更新阅读量 
+			String pviews = (Integer.parseInt(news.getPviews())+1) + "";
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("newsId", newsId);
+			map.put("pviews", pviews);
+			dao.update(map);
+		}
 		JsonResult result = new JsonResult();
 		result.setMsg("news load success.");
 		result.setStatus(0);

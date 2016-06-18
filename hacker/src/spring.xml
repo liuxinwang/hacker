@@ -20,13 +20,10 @@
   
   <!-- 配置数据源 -->
     <bean id="ds" class="org.apache.commons.dbcp.BasicDataSource">
-        <property name="url" value="jdbc:mysql://rm-bp147z0j2fz54215f.mysql.rds.aliyuncs.com:3306/r8e1qfehuv" />
-<!--        <property name="url" value="jdbc:mysql://139.129.48.120:3306/hacker" />-->
+		<property name="url" value="jdbc:mysql://139.129.48.120:3306/hacker?useUnicode=true&amp;characterEncoding=utf-8" />
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="username" value="r8e1qfehuv" />
-        <property name="password" value="liuxinwang" />
-<!--        <property name="username" value="root" />-->
-<!--        <property name="password" value="" />-->
+        <property name="username" value="user" />
+        <property name="password" value="mlxfUEsQNW" />
     </bean>
     
     <!-- 配置SqlSessionFactory -->

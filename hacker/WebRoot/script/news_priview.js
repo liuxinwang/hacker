@@ -13,7 +13,7 @@ $(function(){
 				var content  = "<h2>"+news.news_title+"</h2>";
 					content += "作者：<span>"+news.author+" </span>";
 					content += "来源：<span>"+news.source+" </span><br/>";
-					content += "<HR style='FILTER: progid:DXImageTransform.Microsoft.Glow(color=#987cb9,strength=10)' width='80%' color=#987cb9 SIZE=1>";
+					content += "<HR style='FILTER: progid:DXImageTransform.Microsoft.Glow(color=#987cb9,strength=10)' width='100%' color=#987cb9 SIZE=1>";
 					content += "<br/><br/><br/>";
 					content += news.content;
 					content += "<br/><br/><br/>";
