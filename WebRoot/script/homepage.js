@@ -20,29 +20,36 @@ function newsListLoad(page,size){
 		dataType: "json",
 		success: function(result){
 			if(result.status==0){
-				$("#newsleft_div ul").empty();
-				$("#newsright_div ul").empty();
+				$("#news_table tbody").empty();
+				//热点
+				var newsHot = result.data1;
+				for(var v=0;v<newsHot.length;v++){
+					var newsTitle = newsHot[v].news_title;
+					var newsContent = newsHot[v].content;
+					var newsId = newsHot[v].news_id;
+					var s_div  = '<div id="hot_'+(v+1)+'">';
+						s_div += '<h3><a id='+newsId+' href="javascript:;;">'+newsTitle+'</a></h3>';
+						s_div += '<p>'+newsContent+'</p>';
+						s_div += '</div>';
+					$div = $(s_div);								
+					$("#right_hot").append($div);
+				}
+				//非热点
 				var newsList = result.data;
 				for(var v=0;v<newsList.length;v++){
 					var newsTitle = newsList[v].news_title;
+					var author = newsList[v].author;
 					var issueTime = newsList[v].issue_time;
 					var newsId = newsList[v].news_id;
 					issueTime = strToDate(issueTime);
-					var s_li  = '<li>';
-						s_li += '<span class="title">';
-					 	s_li += '<a href="javascript:;;">';
-					 	s_li += newsTitle+"  ";
-					 	s_li += '</a>';
-					 	s_li += '</span>';
-						s_li += '<span class="date">'+issueTime+'</span>';
-					 	s_li += '</li>';
-					$li = $(s_li);
-					$li.data("newsId",newsId);
-					if(v<20){									
-						$("#newsleft_div ul").append($li);
-					}else{
-						$("#newsright_div ul").append($li);
-					}
+					var s_tr  = '<tr>';
+					 	s_tr += '<td align="left"><a id='+newsId+' href="javascript:;">'+newsTitle+'</a></td>';
+					 	s_tr += '<td>'+author+'</td>';
+					 	s_tr += '<td>'+issueTime+'</td>';
+					 	s_tr += '</tr>';
+					$tr = $(s_tr);
+					$tr.data("newsId",newsId);								
+					$("#news_table tbody").append($tr);
 				}
 			}
 		},
